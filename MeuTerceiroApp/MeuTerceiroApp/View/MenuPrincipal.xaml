@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuTerceiroApp.View.MenuPrincipal"
+            Title="Meu Terceiro App">
+  <!--Pages can be added as references or inline-->
+    <ContentPage 
+        Title="Criar frase"
+        BackgroundColor="Beige">
+        <StackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <StackLayout>
+                <Label         
+                    x:Name="MeuLabel"
+                    Text="Insira sua frase de vida:"
+                    FontSize="25"
+                    TextColor="CadetBlue"
+                />
+            </StackLayout>
+            <StackLayout>
+                <Editor 
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="MeuEntry"
+                    TextColor="CadetBlue"
+                    FontSize="20"
+                    BackgroundColor="Beige"
+                    Focused="Entry_Focused"
+                    Unfocused="MeuEntry_Unfocused"
+                    Text="{Binding MinhaFrase}"
+                    
+                />
+            </StackLayout>
+            <StackLayout>
+                <Button
+                    x:Name="MeuBotaoSalvar"
+                    Text="Salvar frase ;¬)"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    BackgroundColor="Transparent"
+                    TextColor="CadetBlue"
+                    Clicked="Button_Clicked"
+                    />
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage>
+    <ContentPage 
+        Title="Minhas frases ;)"
+        BackgroundColor="Beige">
+        <StackLayout>
+            <ListView
+                x:Name="MinhaListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label                                    
+                                    Text="{Binding MinhaFrase}"
+                                    TextColor="CadetBlue"
+                                    FontSize="25"
+                                    />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
